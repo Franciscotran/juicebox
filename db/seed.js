@@ -97,8 +97,8 @@ async function dropTables() {
     try {
         console.log("Starting to test database...");
     // this only calls for the users to see if the call is working 
-        const users = await getAllUsers();
-        console.log("Result:", users);
+        // const users = await getAllUsers();
+        // console.log("Result:", users);
     // this is updating a users info in the database, we are testing here
         // console.log("Calling updateUser on users[0]")
         // const updateUserResult = await updateUser(users[0].id, {

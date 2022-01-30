@@ -129,18 +129,18 @@ async function updatePost(id, fields = {}){
 
   async function getUserById(userId) {
     try {
-      const { rows } = await client.query(`
+      const { rows: [posts] } = await client.query(`
         SELECT * FROM users
         WHERE "id"=${ userId };
       `);
-      console.log("this is roes in getuserbyid",rows);
-      if(!rows){
+    //   console.log("this is roes in getuserbyid",rows);
+      if(!posts){
         return null
       }
-      delete rows.password;
-      rows.posts =  await getPostsByUser(userId)
+      delete posts.password;
+      posts.userPosts =  await getPostsByUser(userId)
 
-      return rows;
+      return posts;
     } catch (error) {
       throw error;
     }
