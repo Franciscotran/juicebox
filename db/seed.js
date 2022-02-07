@@ -166,6 +166,7 @@ async function dropTables() {
       await createTables();
       await createInitialUsers();
       await createInitialPosts();
+      await createInitialTags();
     } catch (error) {
       console.log("Error during rebuildDB")
       throw error;
